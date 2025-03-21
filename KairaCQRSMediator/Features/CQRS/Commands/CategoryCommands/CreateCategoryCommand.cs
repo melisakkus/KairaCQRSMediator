@@ -1,10 +1,9 @@
 ﻿using KairaCQRSMediator.DataAccess.Entities;
 
-namespace KairaCQRSMediator.Features.CQRS.Results.CategoryResults
+namespace KairaCQRSMediator.Features.CQRS.Commands.CategoryCommands
 {
-    public class GetCategoryByIdQueryResult
+    public class CreateCategoryCommand
     {
-        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string ImageUrl { get; set; }
     }
