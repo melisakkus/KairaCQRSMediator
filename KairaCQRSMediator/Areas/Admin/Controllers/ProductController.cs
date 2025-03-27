@@ -1,4 +1,5 @@
-﻿using KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers;
+﻿using KairaCQRSMediator.Features.CQRS.Commands.CategoryCommands;
+using KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers;
 using KairaCQRSMediator.Features.Mediator.Commands.ProductCommands;
 using KairaCQRSMediator.Features.Mediator.Queries.ProductQueries;
 using MediatR;
@@ -32,6 +33,18 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductCommand command)
         {
+            var categories = await _getCategoryQueryHandler.Handle();
+            ViewBag.Categories = (from x in categories
+                                  select new SelectListItem
+                                  {
+                                      Text = x.CategoryName,
+                                      Value = x.CategoryId.ToString()
+                                  }).ToList();
+            //fast fail yöntemi
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
             await _mediator.Send(command);
             return RedirectToAction("Index");
         }
@@ -49,5 +62,29 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
             var product = await _mediator.Send(new GetProductByIdQuery(id));
             return View(product);
         }
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommand command)
+        {
+            var categories = await _getCategoryQueryHandler.Handle();
+            ViewBag.Categories = (from x in categories
+                                  select new SelectListItem
+                                  {
+                                      Text = x.CategoryName,
+                                      Value = x.CategoryId.ToString()
+                                  }).ToList();
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
+            await _mediator.Send(command);
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> RemoveProduct(int id)
+        {
+            await _mediator.Send(new RemoveProductCommand(id));
+            return RedirectToAction("Index");
+        }
+
     }
 }
