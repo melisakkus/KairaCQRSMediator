@@ -1,0 +1,27 @@
+﻿@model CreateProductCommand
+@{
+    ViewData["Title"] = "CreateProduct";
+}
+
+
+<h3>Ürün Ekleme</h3>
+
+<form method="post">
+    <label>Ürün Adı:</label>
+    <input type="text" asp-for="ProductName" class="form-control" />
+    <br />
+    <label>Ürün Görseli:</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <label>Ürün Fiyatı:</label>
+    <input type="number" asp-for="Price" class="form-control" />
+    <br />
+    <label>Kategori:</label>
+    <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.Categories">
+        <option selected disabled>Kategori Seçiniz</option>
+    </select>
+    <br />
+    <div class="text-center">
+        <button class="btn btn-outline-success">Kaydet</button>
+    </div>
+</form>

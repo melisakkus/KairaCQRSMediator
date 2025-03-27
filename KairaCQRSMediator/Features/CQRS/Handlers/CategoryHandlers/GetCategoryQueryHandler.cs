@@ -1,5 +1,6 @@
 ﻿using KairaCQRSMediator.DataAccess.Entities;
 using KairaCQRSMediator.Features.CQRS.Results.CategoryResults;
+using KairaCQRSMediator.Features.Mediator.Results.ProductResults;
 using KairaCQRSMediator.Repositories;
 
 namespace KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers
@@ -21,7 +22,7 @@ namespace KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers
                 CategoryId = category.CategoryId,
                 CategoryName = category.CategoryName,
                 ImageUrl = category.ImageUrl,
-                Products = category.Products,                
+                Products = (IList<GetProductsQueryResult>)category.Products,                
             }).ToList();
         }
     }
