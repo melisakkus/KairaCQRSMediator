@@ -2,6 +2,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using KairaCQRSMediator.DataAccess.Context;
 using KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers;
+using KairaCQRSMediator.Features.CQRS.Handlers.ServiceHandlers;
 using KairaCQRSMediator.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,8 @@ builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
 builder.Services.AddScoped<CreateCategoryCommandHandler>();
 builder.Services.AddScoped<RemoveCategoryCommandHandler>();
 builder.Services.AddScoped<UpdateCategoryCommandHandler>();
+
+builder.Services.AddScoped<GetServiceQueryHandler>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
