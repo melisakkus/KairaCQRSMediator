@@ -1,0 +1,41 @@
+﻿@model GetServiceByIdQueryResult
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4">Hizmet Bilgisi Güncelle</h4>
+
+                <form method="post">
+                    <input type="hidden" asp-for="ServiceId" />
+
+                    <div class="form-group">
+                        <label asp-for="Name">Hizmet Adı</label>
+                        <input type="text" asp-for="Name" class="form-control" placeholder="Örn: Hızlı Kargo" />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description">Açıklama</label>
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Hizmet hakkında kısa bir açıklama..."></textarea> 
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Icon">Ikon</label>
+                        <input type="text" asp-for="Icon" class="form-control" />
+                    </div>
+
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                        <a href="/Admin/Service/Index" class="btn btn-light btn-lg ml-2">İptal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

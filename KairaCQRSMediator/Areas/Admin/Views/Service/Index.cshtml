@@ -1,19 +1,22 @@
 ﻿@model List<GetServiceQueryResult>
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
 }
 
+<br />
 <h1 class="text-center">Hizmetler</h1>
 
 @{
     int count = 0;
 }
 <br />
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered text-center">
     <tr>
         <th>#</th>
         <th>Servis Adı</th>
         <th>Açıklaması</th>
+        <th>İşlemler</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -29,7 +32,7 @@
         </tr>
     }
 </table>
-
+<br />
 <div class="text-center">
     <a href="/Admin/Service/Create" class="btn btn-outline-success">Yeni Hizmet Ekle</a>
 </div>

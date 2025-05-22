@@ -29,6 +29,10 @@ builder.Services.AddScoped<RemoveCategoryCommandHandler>();
 builder.Services.AddScoped<UpdateCategoryCommandHandler>();
 
 builder.Services.AddScoped<GetServiceQueryHandler>();
+builder.Services.AddScoped<GetServiceByIdQueryHandler>();
+builder.Services.AddScoped<CreateServiceCommandHandler>();
+builder.Services.AddScoped<UpdateServiceCommandHandler>();
+builder.Services.AddScoped<RemoveServiceCommandHandler>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
