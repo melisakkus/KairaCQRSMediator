@@ -14,6 +14,10 @@ namespace KairaCQRSMediator.DataAccess.Context
         public DbSet<Service> Services { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<PhotoGallery> PhotoGalleries { get; set; }
+        public DbSet<ContactInfo> ContactInfos { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
 
     }
 }

@@ -1,0 +1,35 @@
+﻿@model List<GetBrandQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+<br />
+<h1 class="text-center">Markalar</h1>
+
+@{
+    int count = 0;
+}
+<br />
+<table class="table table-hover table-bordered text-center">
+    <tr>
+        <th>#</th>
+        <th>Marka</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td><a href="@item.Icon"></a>@item.Icon</td>
+            <td>
+                <a href="/Admin/Brand/Remove/@item.BrandId" class="btn btn-outline-danger">Sil</a>
+                <a href="/Admin/Brand/Update/@item.BrandId" class="btn btn-outline-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div class="text-center">
+    <a href="/Admin/Brand/Create" class="btn btn-outline-success">Yeni Marka Ekle</a>
+</div>

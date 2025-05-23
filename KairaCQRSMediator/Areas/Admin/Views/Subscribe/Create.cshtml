@@ -1,0 +1,32 @@
+﻿@model CreateSubscribeCommand
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4">Yeni Abonelik Ekle</h4>
+
+                <form method="post">
+
+                    <div class="form-group">
+                        <label asp-for="Email">Email </label>
+                        <input type="email" asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                        <a href="/Admin/Subscribe/Index" class="btn btn-light btn-lg ml-2">İptal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
