@@ -17,17 +17,19 @@
                     <div class="form-group">
                         <label asp-for="Name">Hizmet Adı</label>
                         <input type="text" asp-for="Name" class="form-control" placeholder="Örn: Hızlı Kargo" />
-
+                        <span class="text-danger" asp-validation-for="Name"></span>
                     </div>
 
                     <div class="form-group">
                         <label asp-for="Description">Açıklama</label>
-                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Hizmet hakkında kısa bir açıklama..."></textarea> 
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Hizmet hakkında kısa bir açıklama..."></textarea>
+                        <span class="text-danger" asp-validation-for="Description"></span>
                     </div>
 
                     <div class="form-group">
                         <label asp-for="Icon">Ikon</label>
                         <input type="text" asp-for="Icon" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Icon"></span>
                     </div>
 
                     <div class="text-center mt-4 pt-2">

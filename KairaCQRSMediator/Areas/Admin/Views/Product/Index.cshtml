@@ -1,12 +1,17 @@
 ﻿@model List<GetProductsQueryResult>
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
 }
 @{
     int count = 0;
 }
 
-<table class="table table-hover table-bordered">
+<br />
+<h1 class="text-center">Ürünler</h1>
+
+<br />
+<table class="table table-hover table-bordered text-center">
     <tr>
         <th>#</th>
         <th>Ürün Adı</th>
@@ -31,7 +36,9 @@
         </tr>
     }
 </table>
-
+<br />
 <div class="text-center">
     <a href="/Admin/Product/CreateProduct" class="btn btn-outline-success">Yeni Ürün</a>
 </div>
+
+

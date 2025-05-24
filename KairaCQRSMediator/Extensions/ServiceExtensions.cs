@@ -2,6 +2,8 @@
 using KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers;
 using KairaCQRSMediator.Features.CQRS.Handlers.ServiceHandlers;
 using KairaCQRSMediator.Features.CQRS.Handlers.TestimonialHandlers;
+using KairaCQRSMediator.Features.Mediator.Handlers.GalleryHandlers;
+using KairaCQRSMediator.Repositories.ProductRepositories;
 
 namespace KairaCQRSMediator.Extensions
 {
@@ -32,6 +34,13 @@ namespace KairaCQRSMediator.Extensions
             services.AddScoped<UpdateBrandCommandHandler>();
             services.AddScoped<CreateBrandCommandHandler>();
             services.AddScoped<RemoveBrandCommandHandler>();
+
+            //services.AddScoped<GetGalleriesQueryHandler>();
+            //services.AddScoped<GetGalleryByIdQueryHandler>();
+
+
+
+            services.AddScoped<IProductService,ProductService>();
 
             return services;
         }

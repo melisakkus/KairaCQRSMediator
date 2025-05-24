@@ -11,6 +11,18 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductController(IMediator _mediator, GetCategoryQueryHandler _getCategoryQueryHandler) : Controller
     {
+        public async Task<IActionResult> LastProducts()
+        {
+            var products = await _mediator.Send(new GetLastProductsQuery());
+            return View(products);
+        }
+
+        public async Task<IActionResult> RandomProduct()
+        {
+            var product = await _mediator.Send(new GetRandomProductQuery());
+            return View(product);
+        }
+
         public async Task<IActionResult> Index()
         {
             var products = await _mediator.Send(new GetProductsQuery());
@@ -29,7 +41,7 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
                                   }).ToList();
             return View();
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductCommand command)
         {

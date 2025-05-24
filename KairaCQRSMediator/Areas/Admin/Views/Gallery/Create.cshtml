@@ -1,0 +1,33 @@
+﻿@using KairaCQRSMediator.Features.Mediator.Commands.GalleryCommands
+@model CreateGalleryCommand
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4"> Yeni Fotoğraf Ekle</h4>
+
+                <form method="post">
+
+                    <div class="form-group">
+                        <label asp-for="Url">Görsel Linki</label>
+                        <input type="text" asp-for="Url" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Url"></span>
+                    </div>
+
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                        <a href="/Admin/Gallery/Index" class="btn btn-light btn-lg ml-2">İptal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

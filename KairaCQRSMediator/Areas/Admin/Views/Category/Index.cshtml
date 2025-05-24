@@ -1,12 +1,16 @@
 ﻿@model List<GetCategoryQueryResult>
+
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
 }
 @{
     int count = 0;
 }
-
-<table class="table table-hover table-bordered">
+<br />
+<h1 class="text-center">Kategoriler</h1>
+<br />
+<table class="table table-hover table-bordered text-center">
     <tr>
         <th>#</th>
         <th>Kategori Adı</th>
@@ -25,7 +29,8 @@
         </tr>
     }
 </table>
-
+<br />
 <div class="text-center">
     <a href="/Admin/Category/CreateCategory" class="btn btn-outline-success">Yeni Kategori</a>
 </div>
+

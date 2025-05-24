@@ -6,8 +6,8 @@ namespace KairaCQRSMediator.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        private readonly KairaContext _context;
-        private readonly DbSet<T> _table;
+        protected readonly KairaContext _context;
+        protected readonly DbSet<T> _table;
         public GenericRepository(KairaContext context)
         {
             _context = context;
@@ -27,7 +27,7 @@ namespace KairaCQRSMediator.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<T>> GetAllAsync(Expression<Func<T,object>> include=null)
+        public async Task<List<T>> GetAllAsync(Expression<Func<T, object>> include = null)
         {
             if (include != null)
             {

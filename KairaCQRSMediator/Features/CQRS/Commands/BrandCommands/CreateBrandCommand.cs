@@ -3,6 +3,6 @@
     public class CreateBrandCommand
     {
         public int BrandId { get; set; }
-        public string Icon { get; set; }
+        public string? Icon { get; set; }
     }
 }

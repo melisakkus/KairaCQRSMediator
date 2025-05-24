@@ -1,32 +1,49 @@
 ﻿@model GetProductByIdQueryResult
 @{
     ViewData["Title"] = "UpdateProduct";
+        Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
 }
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8">
 
-<h3>Ürün Güncelleme</h3>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4">Ürün Güncelleme</h4>
+                <form method="post">
+                    <input type="hidden" asp-for="ProductId"/>
 
-<form method="post">
-    <label>Ürün Adı:</label>
-    <input type="text" asp-for="ProductName" class="form-control" />
-    <span asp-validation-for="ProductName" class="text-danger"></span>
-    <br />
-    <label>Ürün Görseli:</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
-    <span asp-validation-for="ImageUrl" class="text-danger"></span>
-    <br />
-    <label>Ürün Fiyatı:</label>
-    <input type="number" asp-for="Price" class="form-control" />
-    <span asp-validation-for="Price" class="text-danger"></span>
-    <br />
-    <label>Kategori:</label>
-    <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.Categories">
-        <option disabled>Kategori Seçiniz</option>
-    </select>
-    <span asp-validation-for="CategoryId" class="text-danger"></span>
-    <br />
-    <div class="text-center">
-        <button class="btn btn-outline-success">Kaydet</button>
+                    <label>Ürün Adı:</label>
+                    <input type="text" asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                    <br />
+                    <label>Ürün Görseli:</label>
+                    <input type="text" asp-for="ImageUrl" class="form-control" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    <br />
+                    <label>Ürün Fiyatı:</label>
+                    <input type="number" asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                    <br />
+                    <label>Kategori:</label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.Categories">
+                        <option disabled>Kategori Seçiniz</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    <br />
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                        <a href="/Admin/Product/Index" class="btn btn-light btn-lg ml-2">İptal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</div>
+
+
+
+
+
 
 

@@ -27,6 +27,10 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(UpdateServiceCommand command)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
             await _updateServiceCommandHandler.Handle(command);
             return RedirectToAction("Index");
         }
@@ -41,6 +45,10 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateServiceCommand command)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
             await _createServiceCommandHandler.Handle(command);
             return RedirectToAction("Index");
         }

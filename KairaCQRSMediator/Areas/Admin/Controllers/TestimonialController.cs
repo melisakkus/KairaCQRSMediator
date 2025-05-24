@@ -29,6 +29,10 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(UpdateTestimonialCommand command)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
             await _updateTestimonialCommandHandler.Handle(command);
             return RedirectToAction("Index");
         }
@@ -41,6 +45,10 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateTestimonialCommand command)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
             await _createTestimonialCommandHandler.Handle(command);
             return RedirectToAction("Index");
         }

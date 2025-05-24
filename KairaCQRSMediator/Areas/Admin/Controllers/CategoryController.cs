@@ -3,6 +3,7 @@ using KairaCQRSMediator.Features.CQRS.Commands.CategoryCommands;
 using KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers;
 using KairaCQRSMediator.Features.CQRS.Queries.CategoryQueries;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace KairaCQRSMediator.Areas.Admin.Controllers
 {
@@ -29,6 +30,10 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryCommand updateCategoryCommand)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(updateCategoryCommand);
+            }
             await _updateCategoryCommandHandler.Handle(updateCategoryCommand);
             return RedirectToAction("Index");
         }
@@ -43,6 +48,10 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryCommand createCategoryCommand)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(createCategoryCommand);
+            }
             await _createCategoryCommandHandler.Handle(createCategoryCommand);
             return RedirectToAction("Index");
         }

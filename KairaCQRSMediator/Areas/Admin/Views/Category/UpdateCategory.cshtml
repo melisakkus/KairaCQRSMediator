@@ -1,20 +1,35 @@
 ﻿@model GetCategoryByIdQueryResult
 @{
     ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
 }
 
-<h3>Kategori Güncelle</h3>
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8">
 
-<form method="post">
-    <input type="hidden" asp-for="CategoryId" class="form-control" />
-    <label>Kategori Adı:</label>
-    <input type="text" asp-for="CategoryName" class="form-control" />
-    <br />
-    <label>Kategori Görseli:</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
-    <br />
-    <div class="text-center">
-        <button class="btn btn-outline-warning">Güncelle</button>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4">  Kategori Güncelle </h4>
+
+                <form method="post">
+                    <input type="hidden" asp-for="CategoryId" class="form-control" />
+
+                    <label>Kategori Adı:</label>
+                    <input type="text" asp-for="CategoryName" class="form-control" />
+                    <span class="text-danger" asp-validation-for="CategoryName"></span>
+                    <br />
+                    <label>Kategori Görseli:</label>
+                    <input type="text" asp-for="ImageUrl" class="form-control" />
+                    <span class="text-danger" asp-validation-for="ImageUrl"></span>
+                    <br />
+
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                        <a href="/Admin/Category/Index" class="btn btn-light btn-lg ml-2">İptal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
-
+</div>

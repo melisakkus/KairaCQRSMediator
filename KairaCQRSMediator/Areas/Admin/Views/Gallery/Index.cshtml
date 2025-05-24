@@ -1,0 +1,38 @@
+﻿@model List<GetGalleryQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+
+
+<br />
+<h1 class="text-center">Galeri</h1>
+
+@{
+    int count = 0;
+}
+<br />
+<table class="table table-hover table-bordered text-center">
+    <tr>
+        <th>#</th>
+        <th>Fotoğraflar</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td><img src="@item.Url" style="width:100px;height:100px"/>@item.Url</td>
+            <td>
+                <a href="/Admin/Gallery/Remove/@item.PhotoGalleryId" class="btn btn-outline-danger">Sil</a>
+                <a href="/Admin/Gallery/Update/@item.PhotoGalleryId" class="btn btn-outline-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div class="text-center">
+    <a href="/Admin/Gallery/Create" class="btn btn-outline-success">Yeni Fotoğraf Ekle</a>
+</div>
+

@@ -1,0 +1,46 @@
+﻿@model UpdateSocialMediaCommand
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4">Sosyal Medya Bilgisi Güncelle</h4>
+
+                <form method="post">
+                    <input type="hidden" asp-for="SocialMediaId" />
+
+                    <div class="form-group">
+                        <label asp-for="Name">İsim</label>
+                        <input type="text" asp-for="Name" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Icon">Ikon</label>
+                        <input type="text" asp-for="Icon" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Icon"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Url">Link</label>
+                        <input type="text" asp-for="Url" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Url"></span>
+                    </div>
+
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                        <a href="/Admin/SocialMedia/Index" class="btn btn-light btn-lg ml-2">İptal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,18 +1,32 @@
 ﻿@model CreateCategoryCommand
 @{
     ViewData["Title"] = "CreateCategory";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
 }
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-8">
 
-<h3>Kategori Ekleme</h3>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4"> Yeni Kategori Ekle </h4>
 
-<form method="post">
-    <label>Kategori Adı:</label>
-    <input type="text" asp-for="CategoryName" class="form-control" />
-    <br />
-    <label>Kategori Görseli:</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
-    <br />
-    <div class="text-center">
-        <button class="btn btn-outline-success">Kaydet</button>
+                <form method="post">
+                    <label>Kategori Adı:</label>
+                    <input type="text" asp-for="CategoryName" class="form-control" />
+                    <span class="text-danger" asp-validation-for="CategoryName"></span>
+                    <br />
+                    <label>Kategori Görseli:</label>
+                    <input type="text" asp-for="ImageUrl" class="form-control" />
+                    <span class="text-danger" asp-validation-for="ImageUrl"></span>
+                    <br />
+
+                    <div class="text-center mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+                        <a href="/Admin/Category/Index" class="btn btn-light btn-lg ml-2">İptal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</div>

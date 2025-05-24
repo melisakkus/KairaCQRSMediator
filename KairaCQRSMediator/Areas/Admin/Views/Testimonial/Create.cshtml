@@ -17,12 +17,13 @@
                     <div class="form-group">
                         <label asp-for="ByName">Ad Soyad</label>
                         <input type="text" asp-for="ByName" class="form-control" />
-
+                        <span class="text-danger" asp-validation-for="ByName"></span>
                     </div>
 
                     <div class="form-group">
                         <label asp-for="Description">Açıklama</label>
                         <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                        <span class="text-danger" asp-validation-for="Description"></span>
                     </div>
 
                     <div class="text-center mt-4 pt-2">

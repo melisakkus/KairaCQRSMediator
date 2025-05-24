@@ -13,7 +13,10 @@ namespace KairaCQRSMediator.Mappings
             CreateMap<Product, GetProductsQueryResult>().ReverseMap(); 
             CreateMap<Product, CreateProductCommand>().ReverseMap(); 
             CreateMap<Product, GetProductByIdQueryResult>().ReverseMap(); 
-            CreateMap<Product, UpdateProductCommand>().ReverseMap(); 
+            CreateMap<Product, UpdateProductCommand>().ReverseMap();
+
+            CreateMap<Product, GetLastProductsQueryResult>().ReverseMap();
+            CreateMap<Product, GetRandomProductQueryResult>().ReverseMap();
         }
     }
 }

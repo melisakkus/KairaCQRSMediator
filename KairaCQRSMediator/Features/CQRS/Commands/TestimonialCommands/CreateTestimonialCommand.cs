@@ -2,7 +2,7 @@
 {
     public class CreateTestimonialCommand
     {
-        public string Description { get; set; }
-        public string ByName { get; set; }
+        public string? Description { get; set; }
+        public string? ByName { get; set; }
     }
 }

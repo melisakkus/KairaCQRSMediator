@@ -1,0 +1,47 @@
+﻿@model List<GetLastProductsQueryResult>
+
+@{
+    ViewData["Title"] = "LastProducts";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+
+@{
+    int count = 0;
+}
+
+<br />
+<h1 class="text-center">Ürünler</h1>
+
+<br />
+<table class="table table-hover table-bordered text-center">
+    <tr>
+        <th>#</th>
+        <th>Ürün Adı</th>
+        <th>Görsel</th>
+        <th>Fiyat</th>
+        <th>Kategori</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td>@item.ProductName</td>
+            <td><img src="@item.ImageUrl" class="img-thumbnail" /></td>
+            <td>@item.Price</td>
+            <td>@item.Category.CategoryName</td>
+            <td>
+                <a href="/Admin/Product/RemoveProduct/@item.ProductId" class="btn btn-outline-danger">Sil</a>
+                <a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div class="text-center">
+    <a href="/Admin/Product/CreateProduct" class="btn btn-outline-success">Yeni Ürün</a>
+</div>
+
+
+

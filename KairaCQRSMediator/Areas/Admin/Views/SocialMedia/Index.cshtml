@@ -1,0 +1,59 @@
+﻿@model List<GetSocialMediasQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Layouts/Views/AdminLayout/Layout.cshtml";
+}
+<br />
+<h1 class="text-center">Sosyal Medyalar</h1>
+
+@{
+    int count = 0;
+}
+<br />
+<table class="table table-hover table-bordered text-center">
+    <tr>
+        <th>#</th>
+        <th>İsim</th>
+        <th>Icon</th>
+        <th>Url</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td>@item.Name</td>
+            <td>
+                @if (item.Icon == null)
+                {
+                    <span class="badge badge-danger">Yok</span>
+                }
+                else
+                {
+                    <span class="badge badge-success">Var</span>
+                }
+            </td>
+            <td>
+                @if (item.Url == null)
+                {
+                    <span class="badge badge-danger">Yok</span>
+                }
+                else
+                {
+                    <span class="badge badge-success">Var</span>
+                }
+            </td>
+            <td>
+                <a href="/Admin/SocialMedia/Remove/@item.SocialMediaId" class="btn btn-outline-danger">Sil</a>
+                <a href="/Admin/SocialMedia/Update/@item.SocialMediaId" class="btn btn-outline-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div class="text-center">
+    <a href="/Admin/SocialMedia/Create" class="btn btn-outline-success">Yeni Sosyal Medya Ekle</a>
+</div>
+
+
