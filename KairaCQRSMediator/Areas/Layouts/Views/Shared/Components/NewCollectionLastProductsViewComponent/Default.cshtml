@@ -1,0 +1,54 @@
+﻿@using KairaCQRSMediator.Features.CQRS.Results.CategoryResults
+@model List<GetCategoryQueryResult>
+
+<section id="billboard" class="bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="section-title text-center mt-4" data-aos="fade-up">Yeni Koleksiyonlar</h1>
+            <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                    Stilinizin güncel kalması için en son gelen ürünlerimizi keşfedin. Her bir parça, modern estetik ve zamansız zarafeti bir araya getirerek gardırobunuza sofistike bir dokunuş katıyor. Sizi özel hissettirecek yeni tasarımlarımızla tanışın.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="swiper main-swiper py-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="swiper-wrapper d-flex border-animation-left">
+                    @foreach(var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <div class="banner-item image-zoom-effect">
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="@item.ImageUrl" alt="product" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="banner-content py-4">
+                                    <h5 class="element-title text-uppercase">
+                                        <a href="index.html" class="item-anchor">@item.CategoryName</a>
+                                    </h5>
+                                    <p>@item.Description</p>
+                                    <div class="btn-left">
+                                        <a href="#" class="btn-link fs-6 text-uppercase item-anchor text-decoration-none">KEŞFET</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }                  
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="icon-arrow icon-arrow-left">
+                <svg width="50" height="50" viewBox="0 0 24 24">
+                    <use xlink:href="#arrow-left"></use>
+                </svg>
+            </div>
+            <div class="icon-arrow icon-arrow-right">
+                <svg width="50" height="50" viewBox="0 0 24 24">
+                    <use xlink:href="#arrow-right"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>

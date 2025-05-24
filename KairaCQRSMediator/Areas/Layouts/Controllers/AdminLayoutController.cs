@@ -3,7 +3,7 @@
 namespace KairaCQRSMediator.Areas.Layouts.Controllers
 {
     [Area("Layouts")]
-    public class AdminLayout : Controller
+    public class AdminLayoutController : Controller
     {
         public IActionResult Layout()
         {

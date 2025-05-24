@@ -22,6 +22,7 @@ namespace KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers
                 CategoryId = category.CategoryId,
                 CategoryName = category.CategoryName,
                 ImageUrl = category.ImageUrl,
+                Description = category.Description
             };
         }
     }

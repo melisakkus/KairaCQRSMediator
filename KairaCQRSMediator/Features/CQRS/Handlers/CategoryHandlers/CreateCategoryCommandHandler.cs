@@ -11,6 +11,7 @@ namespace KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers
             var category = new Category
             {
                 CategoryName = command.CategoryName,
+                Description = command.Description,
                 ImageUrl = command.ImageUrl,
             };
             await _repository.CreateAsync(category);

@@ -18,6 +18,10 @@
                     <label>Kategori Adı:</label>
                     <input type="text" asp-for="CategoryName" class="form-control" />
                     <span class="text-danger" asp-validation-for="CategoryName"></span>
+                    <br />                 
+                    <label>Kategori Açıklaması:</label>
+                    <textarea asp-for="Description" rows="3" class="form-control"> </textarea>
+                    <span class="text-danger" asp-validation-for="Description"></span>
                     <br />
                     <label>Kategori Görseli:</label>
                     <input type="text" asp-for="ImageUrl" class="form-control" />

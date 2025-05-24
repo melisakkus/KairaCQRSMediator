@@ -13,6 +13,7 @@ namespace KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers
                 CategoryId = model.CategoryId,
                 CategoryName = model.CategoryName,
                 ImageUrl = model.ImageUrl,
+                Description = model.Description
             };
             await _repository.UpdateAsync(category);
         }

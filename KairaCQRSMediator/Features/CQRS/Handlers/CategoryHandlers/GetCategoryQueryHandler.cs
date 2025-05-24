@@ -23,6 +23,7 @@ namespace KairaCQRSMediator.Features.CQRS.Handlers.CategoryHandlers
                 CategoryName = category.CategoryName,
                 ImageUrl = category.ImageUrl,
                 Products = (IList<GetProductsQueryResult>)category.Products,                
+                Description = category.Description
             }).ToList();
         }
     }

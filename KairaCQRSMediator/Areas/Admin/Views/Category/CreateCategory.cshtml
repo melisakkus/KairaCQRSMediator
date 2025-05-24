@@ -20,6 +20,10 @@
                     <input type="text" asp-for="ImageUrl" class="form-control" />
                     <span class="text-danger" asp-validation-for="ImageUrl"></span>
                     <br />
+                    <label>Kategori Açıklaması:</label>
+                    <textarea asp-for="Description" rows="3" class="form-control"> </textarea>
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                    <br />
 
                     <div class="text-center mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg">Kaydet</button>

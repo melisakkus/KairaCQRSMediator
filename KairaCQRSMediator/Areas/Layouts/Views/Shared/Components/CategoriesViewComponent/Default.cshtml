@@ -1,0 +1,29 @@
+﻿@using KairaCQRSMediator.Features.CQRS.Results.CategoryResults
+@model List<GetCategoryQueryResult>
+
+<section class="categories overflow-hidden">
+    <div class="container">
+        <div class="open-up" data-aos="zoom-out">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="cat-item image-zoom-effect">
+                            <div class="image-holder">
+                                <a href="index.html">
+                                    <img src="@item.ImageUrl" alt="categories" class="product-image img-fluid">
+                                </a>
+                            </div>
+                            <div class="category-content">
+                                <div class="product-button">
+                                    <a href="index.html" class="btn btn-common text-uppercase">@item.CategoryName</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>

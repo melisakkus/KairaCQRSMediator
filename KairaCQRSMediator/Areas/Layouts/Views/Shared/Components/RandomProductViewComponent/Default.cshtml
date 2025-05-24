@@ -1,0 +1,26 @@
+﻿@using KairaCQRSMediator.Features.Mediator.Results.ProductResults
+@model GetRandomProductQueryResult
+
+<section class="collection bg-light position-relative py-5">
+    <div class="container">
+        <div class="row">
+            <div class="title-xlarge text-uppercase txt-fx domino">Koleksiyonlar</div>
+            <div class="collection-item d-flex flex-wrap my-5">
+                <div class="col-md-6 column-container">
+                    <div class="image-holder">
+                        <img src="@Model.ImageUrl" style="width:600px;height:800px" alt="collection" class="product-image img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-6 column-container bg-white">
+                    <div class="collection-content p-5 m-0 m-md-5">
+                        <h3 class="element-title text-uppercase">@Model.ProductName</h3>
+                        <p>
+                            @Model.Category.Description
+                        </p>
+                        <a href="#" class="btn btn-dark text-uppercase mt-3">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
