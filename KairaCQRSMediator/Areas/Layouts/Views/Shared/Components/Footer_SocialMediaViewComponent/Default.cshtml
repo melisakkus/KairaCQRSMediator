@@ -1,0 +1,16 @@
+﻿@using KairaCQRSMediator.Features.Mediator.Results.SocialMediaResults
+@model List<GetSocialMediasQueryResult>
+@*Footer_SocialMediaViewComponent*@
+
+<ul class="list-unstyled d-flex flex-wrap gap-3">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="#" class="text-secondary">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#@item.Icon"></use>
+                </svg>
+            </a>
+        </li>
+    }
+</ul>

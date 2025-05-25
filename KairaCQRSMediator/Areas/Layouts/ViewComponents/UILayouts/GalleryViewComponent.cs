@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KairaCQRSMediator.Features.Mediator.Queries.GalleryQueries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KairaCQRSMediator.Areas.Layouts.ViewComponents.UILayouts
 {
     [ViewComponent(Name = "GalleryViewComponent")]
-    public class GalleryViewComponent : ViewComponent
+    public class GalleryViewComponent(IMediator _mediator) : ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var values = await _mediator.Send(new GetGalleriesQuery());
+            return View(values);
         }
     }
 }

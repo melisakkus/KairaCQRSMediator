@@ -1,6 +1,24 @@
 ﻿
 @*ScriptsViewComponent*@
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.all.min.js"></script>
+
+<script>
+
+    // TempData'dan gelen mesajları SweetAlert2 ile gösterme
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <text>
+                Swal.fire({
+                    title: 'Başarılı!',
+                text: '@Html.Raw(TempData["SuccessMessage"])', // HTML içeriği korumak için Raw kullanabiliriz, ancak dikkatli olun.
+                icon: 'success',
+                confirmButtonText: 'Tamam'
+                        });
+        </text>
+    }
+</script>
+
 <script src="~/kaira-1.0.0/js/jquery.min.js"></script>
 <script src="~/kaira-1.0.0/js/plugins.js"></script>
 <script src="~/kaira-1.0.0/js/SmoothScroll.js"></script>

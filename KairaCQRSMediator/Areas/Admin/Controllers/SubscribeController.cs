@@ -51,5 +51,7 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
             await _mediator.Send(new RemoveSubscribeCommand(id));
             return RedirectToAction("Index");
         }
+
+
     }
 }

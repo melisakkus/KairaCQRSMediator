@@ -1,4 +1,6 @@
-﻿
+﻿@using KairaCQRSMediator.Features.Mediator.Commands.SubscribeCommands
+@model CreateSubscribeCommand
+
 @*SubscribeViewComponent*@
 
 <section class="newsletter bg-light" style="background: url(~/kaira-1.0.0/images/pattern-bg.png) no-repeat;">
@@ -6,13 +8,63 @@
         <div class="row justify-content-center">
             <div class="col-md-8 py-5 my-5">
                 <div class="subscribe-header text-center pb-3">
-                    <h3 class="section-title text-uppercase">Sign Up for our newsletter</h3>
+                    <h3 class="section-title text-uppercase">Yenİlİklerden Haberdar Olun</h3>
                 </div>
-                <form id="form" class="d-flex flex-wrap gap-2">
-                    <input type="text" name="email" placeholder="Your Email Addresss" class="form-control form-control-lg">
-                    <button class="btn btn-dark btn-lg text-uppercase w-100">Sign Up</button>
-                </form>
+                <form method="post" id="subscribeForm" asp-area="Layouts" asp-controller="UILayout" asp-action="Create" class="d-flex flex-wrap gap-2">
+                    <input type="email" asp-for="Email" placeholder="Email adresiniz..." class="form-control form-control-lg">
+                    <button class="btn btn-dark btn-lg text-uppercase w-100">Üye Ol</button>
+@*                     <span class="text-danger" asp-validation-for="Email"></span>
+ *@                </form>
             </div>
         </div>
     </div>
 </section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const subscribeForm = document.getElementById('subscribeForm');
+        const emailInput = subscribeForm.querySelector('input[name="Email"]');
+
+        subscribeForm.addEventListener('submit', async function (e) {
+            e.preventDefault(); // Stop default form submission
+
+            try {
+                const response = await fetch('/Layouts/UILayout/Create', {
+                    method: 'POST',
+                    body: new FormData(subscribeForm) // Directly use FormData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Başarılı!',
+                        text: result.message // Uses the success message from controller
+                    }).then(() => subscribeForm.reset()); // Clear form on success
+                } else {
+                    // Display error based on FluentValidation messages or a fallback
+                    const errorMessage = result.errors && result.errors.length > 0
+                        ? result.errors.join('<br>') // Use specific FluentValidation errors
+                        : 'Bilinmeyen bir hata oluştu.'; // Fallback if no specific errors
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Hata!',
+                        html: errorMessage, // Display as HTML to allow line breaks
+                        confirmButtonText: 'Tamam'
+                    });
+                    emailInput.focus(); // Keep focus on the email input
+                }
+            } catch (error) {
+                console.error('Form gönderme hatası:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'İletişim Hatası!',
+                    text: 'Sunucuya bağlanırken bir sorun oluştu. Lütfen tekrar deneyin.'
+                });
+            }
+        });
+    });
+</script>

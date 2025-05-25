@@ -1,0 +1,18 @@
+﻿@using KairaCQRSMediator.Features.Mediator.Results.ContactInfoResults
+@model List<GetContactInfosQueryResult>
+
+@*Footer_ContactViewComponent*@
+
+<h5 class="widget-title text-uppercase mb-4">Bize Ulaşın</h5>
+@foreach(var item in Model)
+{
+    <p>
+        "Herhangi bir sorunuz veya öneriniz mi var? <a href="@item.Email"
+                                                       class="item-anchor">@item.Email</a>
+    </p>
+    <p>
+        Desteğe mi ihtiyacınız var? Bizi arayın. <a href="tel:@item.Phone" class="item-anchor">
+            @item.Phone
+        </a>
+    </p>
+}
