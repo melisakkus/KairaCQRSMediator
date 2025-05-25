@@ -72,7 +72,15 @@ namespace KairaCQRSMediator.Areas.Admin.Controllers
                                       Value = x.CategoryId.ToString()
                                   }).ToList();
             var product = await _mediator.Send(new GetProductByIdQuery(id));
-            return View(product);
+            var updateProduct = new UpdateProductCommand
+            {
+                ProductId = product.ProductId,
+                ProductName = product.ProductName,
+                CategoryId = product.CategoryId,
+                ImageUrl = product.ImageUrl,
+                Price = product.Price,
+            };
+            return View(updateProduct);
         }
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(UpdateProductCommand command)

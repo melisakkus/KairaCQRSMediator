@@ -9,6 +9,7 @@ namespace KairaCQRSMediator.Validations.CategoryValidators
         {
             RuleFor(x => x.CategoryName).NotEmpty().WithMessage("İsim boş geçilemez");
             RuleFor(x => x.ImageUrl).NotEmpty().WithMessage("Görsel boş geçilemez");
+            RuleFor(x => x.Description).NotEmpty().WithMessage("Açıklama boş geçilemez");
         }
     }
 }
