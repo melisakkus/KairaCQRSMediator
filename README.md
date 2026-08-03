@@ -1,36 +1,36 @@
-# Kaira: ASP.NET Core Web Uygulaması ile CQRS & MediatR 
-Kaira Projesi, ASP.NET Core 8 ve MVC mimarisi kullanılarak geliştirilmiş, hem kullanıcı hem de yönetici paneline sahip bir web uygulamasıdır. Proje, CQRS ve Mediator tasarım desenleri ile yapılandırıldı; böylece katmanlar arasında sorumluluklar ayrılarak daha sade, okunabilir ve sürdürülebilir bir yapı oluşturuldu.
+# Kaira: ASP.NET Core Web Application with CQRS & MediatR 
+The Kaira Project is a web application developed using ASP.NET Core 8 and MVC architecture, featuring both a user and an admin panel. The project was structured with CQRS and Mediator design patterns; thus, responsibilities were separated across layers to create a cleaner, more readable, and sustainable architecture.
 
-## 🎯 Admin Paneli ve Teknik Altyapı
-🔹 CQRS ve MediatR tasarım desenleriyle katmanlar ayrıştırıldı, okuma ve yazma işlemleri yapılandırıldı.
+## 🎯 Admin Panel and Technical Infrastructure
+🔹 Layers were separated, and read/write operations were structured using CQRS and MediatR design patterns.
 
-    ▫️ Brand, Category, Service, Testimonial işlemleri CQRS ile,
+    ▫️ Brand, Category, Service, Testimonial operations were managed with CQRS,
     
-    ▫️ ContactInfo, Gallery, Product, SocialMedia, Subscribe işlemleri MediatR ile yönetildi.
+    ▫️ ContactInfo, Gallery, Product, SocialMedia, Subscribe operations were managed with MediatR.
     
-🔹 Area yapısı kullanılarak Admin bölümü kendi alanında izole edildi.
+🔹 The Admin section was isolated within its own space using the Area structure.
 
-🔹 AutoMapper ile nesne dönüşümleri sadeleştirildi.
+🔹 Object mapping was simplified with AutoMapper.
 
-🔹 Fluent Validation ile güvenilir  ve esnek validasyon yapısı kuruldu.
+🔹 A reliable and flexible validation structure was established using Fluent Validation.
 
-🔹 Generic Repository deseniyle tekrar eden CRUD işlemleri sadeleştirildi.
+🔹 Repetitive CRUD operations were simplified with the Generic Repository pattern.
 
-🔹 EF Core – Code First yaklaşımı ile veritabanı tasarlandı, Migrations ile yönetildi.
+🔹 The database was designed using the EF Core – Code First approach and managed with Migrations.
 
-🔹 Veritabanı olarak MS SQL Server kullanıldı.
+🔹 MS SQL Server was used as the database.
 
-## 🌐 Kullanıcı Arayüzü (UI) ve Deneyimsel Tasarım
+## 🌐 User Interface (UI) and Experiential Design
 
-🔹 Kullanıcı arayüzü ViewComponent'lara bölünerek modüler yapı elde edildi.
+🔹 The user interface was divided into ViewComponents to achieve a modular structure.
 
-🔹 Abonelik işlemleri AJAX ile sayfa yenilenmeden, kullanıcı dostu şekilde gerçekleşti.
+🔹 Subscription processes were performed in a user-friendly manner using AJAX without page refreshes.
 
-🔹 Geri bildirimler için SweetAlert entegre edildi.
+🔹 SweetAlert was integrated for user feedback.
 
-🔹 Modern, responsive ve sade bir arayüz ile kullanıcı deneyimi ön planda tutuldu.
+🔹 User experience was prioritized with a modern, responsive, and clean interface.
 
-## 🚀 Proje Görselleri
+## 🚀 Project Screenshots
 ![1](https://github.com/user-attachments/assets/c769f509-6e14-4974-91a5-b76c65536ac5)
 
 ![2](https://github.com/user-attachments/assets/e3ccbaa1-61c4-42ca-ad6b-d7fc5e136621)
@@ -47,7 +47,7 @@ Kaira Projesi, ASP.NET Core 8 ve MVC mimarisi kullanılarak geliştirilmiş, hem
 
 ![8](https://github.com/user-attachments/assets/838ef7cb-4210-4c43-aa0d-f2b15e0e94a1)
 
-## 🚀 Proje Admin Görselleri
+## 🚀 Project Admin Screenshots
 
 ![1](https://github.com/user-attachments/assets/f3f65481-b3a6-4088-8a1f-3b7680bf846d)
 
